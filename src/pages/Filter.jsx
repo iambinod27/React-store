@@ -28,7 +28,7 @@ const Filter = () => {
         </div>
         {/* Filter head */}
 
-        <div className="grid grid-cols-8 gap-4 py-5">
+        <div className="grid grid-cols-8 gap-5 py-5">
           <div className="col-span-2">
             <div className="border-b capitalize flex justify-between items-center pb-3">
               <p className="font-semibold">Filter</p>

@@ -97,10 +97,10 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100  w-52"
             >
               <li>
-                <a>Login</a>
+                <NavLink to="/Login">Login</NavLink>
               </li>
               <li>
-                <a>Sign Up</a>
+                <NavLink to="/create-a-new-account">Sign Up</NavLink>
               </li>
             </ul>
           </div>
