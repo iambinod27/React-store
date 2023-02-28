@@ -1,7 +1,7 @@
 const Card = () => {
   return (
     <>
-      <div className="card card-compact w-80 bg-base-100 rounded-none shadow-xl">
+      <div className="card card-compact w-72 bg-base-100 rounded-none shadow-xl">
         <figure>
           <img
             src="https://i.ebayimg.com/images/g/HTgAAOSw~nFf2Uv4/s-l500.jpg"

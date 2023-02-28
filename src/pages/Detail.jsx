@@ -1,3 +1,5 @@
+import Card from "../components/Card";
+
 const Detail = () => {
   return (
     <>
@@ -148,6 +150,17 @@ const Detail = () => {
             </div>
             {/* Detail and Fabric */}
           </div>
+        </div>
+      </div>
+
+      <div className="">
+        <h4 className="capitalize text-xl font-medium">You may also like:</h4>
+
+        <div className="grid gap-10 grid-cols-4 my-5">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
         </div>
       </div>
     </>
