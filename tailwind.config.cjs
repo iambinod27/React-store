@@ -2,7 +2,15 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
+      },
+    },
   },
-  plugins: [],
+  daisyui: {
+    themes: false,
+  },
+  plugins: [require("daisyui")],
 };

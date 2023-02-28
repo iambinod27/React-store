@@ -1,5 +1,26 @@
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import Detail from "./pages/Detail";
+import Home from "./pages/Home";
+import PageNotFound from "./pages/PageNotFound";
+import ScrollToTop from "./utils/ScrollToTop";
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <>
+      <div className="font-poppins">
+        <ScrollToTop>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="detail" element={<Detail />} />
+            </Route>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </ScrollToTop>
+      </div>
+    </>
+  );
 }
 
 export default App;
