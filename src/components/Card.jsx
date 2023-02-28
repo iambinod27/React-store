@@ -13,7 +13,7 @@ const Card = () => {
           <h2 className="card-title">Men Navy Blue Formal</h2>
           <p>A wear for wedding, work, class for men to look sexy</p>
           <div className="card-actions justify-end">
-            <button className="btn bg-green-600 hover:bg-green-500 border-none text-white rounded-none">
+            <button className="btn  border-none text-white rounded-none">
               Add to cart
             </button>
           </div>

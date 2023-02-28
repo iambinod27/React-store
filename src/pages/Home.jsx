@@ -16,7 +16,7 @@ const Home = () => {
             <div className="absolute h-full w-full top-0 ">
               <div className="w-1/2 h-full flex flex-col justify-center pl-24">
                 <h1 className="font-playfair text-[2.5rem] text-white font-bold self-center">
-                  Everybody be cool, this is fashion robbery.
+                  Everyone looks good in a suit. Even losers.
                 </h1>
                 <p className="text-[1.5rem] font-bold pb-2">
                   Remember who you are.
