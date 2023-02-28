@@ -4,7 +4,6 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        passion: ["Passion One", "cursive"],
         poppins: ["Poppins", "sans-serif"],
         playfair: ["Playfair Display", "serif"],
       },
