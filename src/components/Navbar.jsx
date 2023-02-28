@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Navbar = () => {
   const suitTypes = [
     "Formal",
@@ -14,9 +16,12 @@ const Navbar = () => {
     <>
       <div className="navbar bg-base-200  px-10">
         <div className="lg:navbar-start md:navbar-start">
-          <a className="normal-case text-[3.2rem] font-playfair font-[500] cursor-pointer">
+          <NavLink
+            to="/"
+            className="normal-case text-[3.2rem] font-playfair font-[500] cursor-pointer"
+          >
             STORE.
-          </a>
+          </NavLink>
         </div>
 
         <div className="lg:navbar-center md:navbar-center">
