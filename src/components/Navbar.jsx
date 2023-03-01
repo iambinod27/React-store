@@ -97,7 +97,7 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100  w-52"
             >
               <li>
-                <NavLink to="/Login">Login</NavLink>
+                <NavLink to="/login">Login</NavLink>
               </li>
               <li>
                 <NavLink to="/create-a-new-account">Sign Up</NavLink>

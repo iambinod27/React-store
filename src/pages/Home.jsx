@@ -18,7 +18,7 @@ const Home = () => {
                 <h1 className="font-playfair text-[2.5rem] text-white font-bold leading-[2.8rem]">
                   Everyone looks good in a suit. Even losers.
                 </h1>
-                <p className="text-[1.5rem] font-bold pb-2">
+                <p className="text-[1.75rem] text-white font-medium pb-2">
                   Remember who you are.
                 </p>
                 <div className="flex gap-3">

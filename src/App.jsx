@@ -17,10 +17,10 @@ function App() {
               <Route index element={<Home />} />
               <Route path="detail" element={<Detail />} />
               <Route path="filter" element={<Filter />} />
+              <Route path="/login" element={<Account />} />
+              <Route path="/create-a-new-account" element={<Account />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
-            <Route path="/login" element={<Account />} />
-            <Route path="/create-a-new-account" element={<Account />} />
           </Routes>
         </ScrollToTop>
       </div>
