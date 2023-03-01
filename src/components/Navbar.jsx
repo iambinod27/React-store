@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const suitTypes = [
@@ -97,10 +97,10 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100  w-52"
             >
               <li>
-                <a>Login</a>
+                <NavLink to="/Login">Login</NavLink>
               </li>
               <li>
-                <a>Sign Up</a>
+                <NavLink to="/create-a-new-account">Sign Up</NavLink>
               </li>
             </ul>
           </div>
@@ -165,7 +165,11 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:w-full lg:flex lg:justify-center">
           <ul className="menu menu-horizontal px-1 flex items-center gap-7 ">
             {suitTypes.map((item) => {
-              return <li className="font-medium">{item}</li>;
+              return (
+                <Link to="/filter">
+                  <li className="font-medium">{item}</li>
+                </Link>
+              );
             })}
           </ul>
         </div>
