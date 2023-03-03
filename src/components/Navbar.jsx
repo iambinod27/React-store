@@ -78,11 +78,13 @@ const Navbar = () => {
               <div className="card-body">
                 <span className="font-bold text-lg">5 Items</span>
                 <span className="text-info">Subtotal: $999</span>
-                <div className="card-actions">
-                  <button className="btn btn-black btn-block rounded-none">
-                    View cart
-                  </button>
-                </div>
+                <Link to="/cart">
+                  <div className="card-actions">
+                    <button className="btn btn-black btn-block rounded-none max-w-full">
+                      View cart
+                    </button>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

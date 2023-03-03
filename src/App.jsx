@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Account from "./pages/Account";
+import Cart from "./pages/Cart";
 import Detail from "./pages/Detail";
 import Filter from "./pages/Filter";
 import Home from "./pages/Home";
@@ -19,6 +20,7 @@ function App() {
               <Route path="filter" element={<Filter />} />
               <Route path="/login" element={<Account />} />
               <Route path="/create-a-new-account" element={<Account />} />
+              <Route path="/cart" element={<Cart />} />
             </Route>
             <Route path="*" element={<PageNotFound />} />
           </Routes>
