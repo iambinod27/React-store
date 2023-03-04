@@ -15,11 +15,11 @@ const Cart = () => {
         </ul>
       </div>
       {/* breadcrumb */}
-      <div className="flex justify-center font-semibold uppercase text-3xl">
+      <div className="flex justify-center font-semibold uppercase text-3xl pb-5">
         <h2>My Cart</h2>
       </div>
       <div className="grid grid-cols-9 my-5 gap-5">
-        <div className="col-span-6 ">
+        <div className="col-span-6 min-h-[30rem] h-[32rem] overflow-y-scroll">
           <CartList />
           <CartList />
         </div>

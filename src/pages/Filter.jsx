@@ -1,8 +1,10 @@
 import Breadcrumb from "../components/Breadcrumb";
 import Card from "../components/Card";
 import FilterTab from "../components/FilterTab";
+import data from "../utils/data";
 
 const Filter = () => {
+  const price = data;
   return (
     <>
       <div className="py-8">
@@ -38,7 +40,9 @@ const Filter = () => {
             </div>
 
             {/* {First Filter} */}
-            <FilterTab />
+            {price.map((item) => (
+              <FilterTab name="Price" item={item} />
+            ))}
           </div>
           <div className="col-span-6 ">
             <div className="grid grid-cols-3 gap-10">
