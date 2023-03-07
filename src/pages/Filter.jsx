@@ -4,7 +4,7 @@ import FilterTab from "../components/FilterTab";
 import data from "../utils/data";
 
 const Filter = () => {
-  const price = data;
+  const { price, categories } = data;
   return (
     <>
       <div className="py-8">
@@ -40,9 +40,9 @@ const Filter = () => {
             </div>
 
             {/* {First Filter} */}
-            {price.map((item) => (
-              <FilterTab name="Price" item={item} />
-            ))}
+
+            <FilterTab name="Price" item={price} />
+            <FilterTab name="Categories" item={categories} />
           </div>
           <div className="col-span-6 ">
             <div className="grid grid-cols-3 gap-10">
