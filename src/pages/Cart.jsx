@@ -1,14 +1,22 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CartList from "../components/CartList";
 import EmptyCart from "../components/EmptyCart";
 import PromoCode from "../components/PromoCode";
 import TotalAmount from "../components/TotalAmount";
-import { clearCart } from "../store/features/cart/cartSlice";
+import { clearCart, getCartItems } from "../store/features/cart/cartSlice";
+import Spinner from "../components/Spinner";
 
 const Cart = () => {
   const dispatch = useDispatch();
 
-  const { cartItems, total, amount } = useSelector((state) => state.cart);
+  const { cartItems, total, amount, isLoading } = useSelector(
+    (state) => state.cart
+  );
+
+  useEffect(() => {
+    dispatch(getCartItems());
+  }, []);
 
   return (
     <div className="my-8">
@@ -23,7 +31,11 @@ const Cart = () => {
       </div>
       {/* breadcrumb */}
 
-      {amount < 1 ? (
+      {isLoading ? (
+        <div className="h-72 w-full flex justify-center items-center">
+          <Spinner />
+        </div>
+      ) : amount < 1 ? (
         <EmptyCart />
       ) : (
         <>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const StoreAxios = axios.create({
-  baseURL: "https://fakestoreapi.com",
+  baseURL: "https://course-api.com/",
   headers: {
     Accept: "application/json",
   },
