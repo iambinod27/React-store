@@ -9,16 +9,19 @@ const initialState = {
   isLoading: true,
 };
 
-export const getCartItems = createAsyncThunk("cart/getCartItems", async () => {
-  try {
-    const response = await StoreAxios.get("/react-useReducer-cart-project");
-    const data = await response.data;
-
-    return data;
-  } catch (error) {
-    console.log(error);
+export const getCartItems = createAsyncThunk(
+  "cart/getCartItems",
+  async (_, ThunkAPI) => {
+    try {
+      console.log(ThunkAPI);
+      const response = await StoreAxios.get("/react-useReducer-cart-project");
+      const data = await response.data;
+      return data;
+    } catch (error) {
+      ThunkAPI.rejectWithValue;
+    }
   }
-});
+);
 
 const cartSlice = createSlice({
   name: "cart",
@@ -60,7 +63,7 @@ const cartSlice = createSlice({
     },
 
     [getCartItems.fulfilled]: (state, action) => {
-      console.log(action.payload);
+      console.log(action);
       state.isLoading = false;
       state.cartItems = action.payload;
     },
