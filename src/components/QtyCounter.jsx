@@ -1,38 +1,35 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  decrease,
+  increase,
+  removeItem,
+} from "../store/features/cart/cartSlice";
 
-const QtyCounter = () => {
-  const [counter, setCounter] = useState(2);
+const QtyCounter = ({ amount, id }) => {
+  const dispatch = useDispatch();
 
-  const increaseCounter = () => {
-    if (counter < 1) {
-      return counter;
-    } else {
-      setCounter(counter + 1);
-    }
-  };
-
-  const decreaseCounter = () => {
-    if (counter <= 1) {
-      return counter;
-    } else {
-      setCounter(counter - 1);
-    }
-  };
   return (
     <>
       <div className="flex">
         <div
           className="btn px-3  h-[2.3rem] min-h-[2rem] rounded-none"
-          onClick={decreaseCounter}
+          onClick={() => {
+            if (amount <= 1) {
+              dispatch(removeItem(id));
+              return;
+            }
+            dispatch(decrease(id));
+          }}
         >
           -
         </div>
         <div className="flex items-center justify-center px-3 w-[2rem] h-[2.3rem] min-h-[2rem]">
-          {counter}
+          {amount}
         </div>
         <div
           className="btn px-3 h-[2.3rem] min-h-[2rem] rounded-none"
-          onClick={increaseCounter}
+          onClick={() => dispatch(increase(id))}
         >
           +
         </div>

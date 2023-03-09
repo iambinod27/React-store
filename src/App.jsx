@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Account from "./pages/Account";
@@ -6,9 +8,17 @@ import Detail from "./pages/Detail";
 import Filter from "./pages/Filter";
 import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
+import { calculateTotals } from "./store/features/cart/cartSlice";
 import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
+  const { cartItems } = useSelector((store) => store.cart);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(calculateTotals());
+  }, [cartItems]);
+
   return (
     <>
       <div className="font-poppins">
