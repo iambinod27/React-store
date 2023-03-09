@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const cart = useSelector((state) => state.cart);
+
   const suitTypes = [
     "Formal",
     "Business",
@@ -68,7 +71,9 @@ const Navbar = () => {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span className="badge badge-sm indicator-item">5</span>
+                <span className="badge badge-sm indicator-item">
+                  {cart.amount}
+                </span>
               </div>
             </label>
             <div
@@ -76,8 +81,8 @@ const Navbar = () => {
               className="mt-3 card card-compact dropdown-content w-52 bg-base-100 rounded-none shadow"
             >
               <div className="card-body">
-                <span className="font-bold text-lg">5 Items</span>
-                <span className="text-info">Subtotal: $999</span>
+                <span className="font-bold text-lg">{cart.amount} Items</span>
+                <span className="text-info">Subtotal: ${cart.total}</span>
                 <Link to="/cart">
                   <div className="card-actions">
                     <button className="btn btn-black btn-block rounded-none max-w-full">
@@ -166,9 +171,9 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:w-full lg:flex lg:justify-center">
           <ul className="menu menu-horizontal px-1 flex items-center gap-7 ">
-            {suitTypes.map((item) => {
+            {suitTypes.map((item, index) => {
               return (
-                <Link to="/filter">
+                <Link id={index} to="/filter">
                   <li className="font-medium">{item}</li>
                 </Link>
               );
