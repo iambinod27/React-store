@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, register } from "../../actions/auth/authActions";
+import { getUser, login, register } from "../../actions/auth/authActions";
 
 const initialState = {
   isLoading: true,
@@ -29,11 +29,21 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
     },
     [login.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       state.isLoading = false;
       state.isAuthenticated = true;
     },
     [login.rejected]: (state) => {
+      state.isLoading = true;
+      state.isAuthenticated = false;
+    },
+    [getUser.pending]: (state) => {
+      state.isLoading = true;
+      state.isAuthenticated = false;
+    },
+    [getUser.fulfilled]: (state, { payload }) => {
+      state.isAuthenticated = true;
+    },
+    [getUser.rejected]: (state) => {
       state.isLoading = true;
       state.isAuthenticated = false;
     },

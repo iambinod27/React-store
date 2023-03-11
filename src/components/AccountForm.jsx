@@ -1,11 +1,12 @@
-import { Formik, useFormik } from "formik";
-import { Link, useLocation } from "react-router-dom";
+import { useFormik } from "formik";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login, register } from "../store/actions/auth/authActions";
 
 export const AccountForm = () => {
   const location = useLocation();
   const { pathname } = location;
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 

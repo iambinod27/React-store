@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import StoreAxios from "../../../axios/axios";
-import { redirect } from "react-router-dom";
+import { getHttpOnlyCookies } from "../../../utils/getHttpOnlyCookies";
+
+const access_token = getHttpOnlyCookies("access_token");
 
 export const register = createAsyncThunk(
   "auth/register",
@@ -8,7 +10,6 @@ export const register = createAsyncThunk(
     try {
       const response = await StoreAxios.post("/auth/users/", payload);
       const data = response.data;
-      redirect("/login");
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
@@ -22,6 +23,24 @@ export const login = createAsyncThunk(
     try {
       const response = await StoreAxios.post("/api/token/", payload);
       const data = response.data;
+      return data;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getUser = createAsyncThunk(
+  "auth/userInfo",
+  async (_, thunkAPI) => {
+    try {
+      const response = await StoreAxios("/auth/users/", {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+          "Access-Control-Allow-Origin": true,
+        },
+      });
+      const data = await response.data;
       return data;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);
