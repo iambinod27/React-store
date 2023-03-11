@@ -4,8 +4,9 @@ import CartList from "../components/CartList";
 import EmptyCart from "../components/EmptyCart";
 import PromoCode from "../components/PromoCode";
 import TotalAmount from "../components/TotalAmount";
-import { clearCart, getCartItems } from "../store/features/cart/cartSlice";
+import { clearCart } from "../store/features/cart/cartSlice";
 import Spinner from "../components/Spinner";
+import { getCartItems } from "../store/actions/cart/cartActions";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Cart = () => {
   );
 
   useEffect(() => {
-    dispatch(getCartItems());
+    // dispatch(getCartItems());
   }, []);
 
   return (
