@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import StoreAxios from "../../../axios/axios";
+import { createSlice } from "@reduxjs/toolkit";
 import cartItems from "../../../utils/cartItems";
+import { getCartItems } from "../../actions/cart/cartActions";
 
 const initialState = {
   cartItems: [],
@@ -8,20 +8,6 @@ const initialState = {
   total: 0,
   isLoading: true,
 };
-
-export const getCartItems = createAsyncThunk(
-  "cart/getCartItems",
-  async (_, ThunkAPI) => {
-    try {
-      console.log(ThunkAPI);
-      const response = await StoreAxios.get("/react-useReducer-cart-project");
-      const data = await response.data;
-      return data;
-    } catch (error) {
-      ThunkAPI.rejectWithValue;
-    }
-  }
-);
 
 const cartSlice = createSlice({
   name: "cart",

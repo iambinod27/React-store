@@ -8,16 +8,28 @@ import Detail from "./pages/Detail";
 import Filter from "./pages/Filter";
 import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
+import { getUser } from "./store/actions/auth/authActions";
 import { calculateTotals } from "./store/features/cart/cartSlice";
+import { getHttpOnlyCookies } from "./utils/getHttpOnlyCookies";
 import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
-  const { cartItems } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
+  const { cartItems } = useSelector((store) => store.cart);
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const access_token = getHttpOnlyCookies("access_token");
+
+  console.log(isAuthenticated);
 
   useEffect(() => {
     dispatch(calculateTotals());
   }, [cartItems]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      dispatch(getUser());
+    }
+  }, [access_token]);
 
   return (
     <>
